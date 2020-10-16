@@ -12,7 +12,7 @@ export const criminalCardMaker = (criminalObj) => {
 
 
 
-{/* 
+/* 
 
     Name: name
     Age: age
@@ -20,4 +20,4 @@ export const criminalCardMaker = (criminalObj) => {
     Term start: incarceration.start
     Term end: incarceration.end
     
-    */}
+    */
