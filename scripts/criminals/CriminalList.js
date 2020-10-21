@@ -35,6 +35,29 @@ eventHub.addEventListener("crimeSelected", (event) => {
 })
 
 
+eventHub.addEventListener("officerSelected", officerSelectedEventObj => {
+    console.log("CriminalList: officerSelected custom event has been heard on the event hub")
+
+    const selectedOfficerName = officerSelectedEventObj.detail.officerName
+    console.log(selectedOfficerName)
+
+    const criminalsArray = useCriminals()
+
+    const filteredArrayCriminals = criminalsArray.filter(
+        (criminalObj) => {
+            if (criminalObj.arrestingOfficer === selectedOfficerName) {
+                return true
+            } else {
+                return false
+            }
+        }
+    )
+    console.log(filteredArrayCriminals)
+
+    render(filteredArrayCriminals)
+})
+
+
 
 const render = (filteredArray) => {
     let criminalsHTMLRep = ""
