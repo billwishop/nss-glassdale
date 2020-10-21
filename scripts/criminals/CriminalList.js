@@ -42,7 +42,11 @@ const render = (filteredArray) => {
         criminalsHTMLRep += criminalCardMaker(criminalObj)
     }
     const contentElement = document.querySelector(".criminalsContainer")
-    contentElement.innerHTML += criminalsHTMLRep
+    contentElement.innerHTML = `
+        <section class="criminalsList">
+            ${criminalsHTMLRep}
+        </section>
+        `
 }
 
 

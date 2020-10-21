@@ -33,7 +33,7 @@ const render = convictionsCollection => {
             ).join("")
         }
         </select>
-        `
+        ` 
 }
 
 export const ConvictionSelect = () => {
