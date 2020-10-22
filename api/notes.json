@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "dateOfInterview": "Now",
+      "timestamp": "Now",
+      "author": "Will",
+      "suspect": "Linds",
+      "note": "bad vibe",
+      "id": 1
+    },
+    {
+      "dateOfInterview": {},
+      "timestamp": 1603398633812,
+      "author": "Will",
+      "suspect": "The Grinch",
+      "note": "Stole Christmas",
+      "id": 2
+    },
+    {
+      "dateOfInterview": "2020-10-22",
+      "timestamp": 1603401230679,
+      "author": "Will",
+      "suspect": "Zak",
+      "note": "Bad bad vibe",
+      "id": 3
+    }
+  ]
+}
