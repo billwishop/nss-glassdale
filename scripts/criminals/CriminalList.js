@@ -31,6 +31,7 @@ eventHub.addEventListener("crimeSelected", (event) => {
         console.log("filteredCriminalsArray", filteredCriminalsArray)
     
         render(filteredCriminalsArray)
+       
     } 
 })
 
@@ -77,13 +78,16 @@ export const CriminalList = () => {
     getCriminals().then(() => {
         const criminals = useCriminals() 
 
-        let criminalHTMLRep = ""
+        // let criminalHTMLRep = ""
 
-        for (const criminalObj of criminals) {
-            criminalHTMLRep += criminalCardMaker(criminalObj)
-        }
-        const contentElement = document.querySelector(".criminalsContainer")
-        contentElement.innerHTML += criminalHTMLRep
+        // for (const criminalObj of criminals) {
+        //     criminalHTMLRep += criminalCardMaker(criminalObj)
+        // }
+        // const contentElement = document.querySelector(".criminalsContainer")
+        // contentElement.innerHTML += criminalHTMLRep
+
+        render(criminals)
+        console.log("criminals array within the criminalList function", criminals)
      } )
     
 }
