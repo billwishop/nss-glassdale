@@ -10,21 +10,17 @@ import { OfficerSelect } from "./officers/OfficerSelect.js"
 import { NoteForm } from "./notes/NoteForm.js"
 import { NoteList } from "./notes/NoteList.js"
 import { alibiButtonFunction } from "./criminals/AlibiList.js"
+import { renderWitnessButton } from "./witnesses/WitnessButton.js";
+import { WitnessList } from "./witnesses/WitnessList.js";
 
 getCriminals()
-
 useCriminals()
-
 CriminalList()
-
 OfficerList()
-
 ConvictionSelect()
-
 OfficerSelect()
-
 NoteForm()
-
 NoteList()
-
 alibiButtonFunction()
+renderWitnessButton()
+WitnessList()

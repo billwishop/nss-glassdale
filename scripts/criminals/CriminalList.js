@@ -67,6 +67,7 @@ const render = (filteredArray) => {
     }
     const contentElement = document.querySelector(".criminalsContainer")
     contentElement.innerHTML = `
+        <h2 class="header__criminals">Criminals</h2>
         <section class="criminalsList">
             ${criminalsHTMLRep}
         </section>
