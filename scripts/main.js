@@ -9,6 +9,7 @@ import { ConvictionSelect } from "./convictions/ConvictionSelect.js"
 import { OfficerSelect } from "./officers/OfficerSelect.js"
 import { NoteForm } from "./notes/NoteForm.js"
 import { NoteList } from "./notes/NoteList.js"
+import { alibiButtonFunction } from "./criminals/AlibiList.js"
 
 getCriminals()
 
@@ -25,3 +26,5 @@ OfficerSelect()
 NoteForm()
 
 NoteList()
+
+alibiButtonFunction()

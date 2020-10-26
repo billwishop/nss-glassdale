@@ -11,11 +11,11 @@
     padding: .5rem;
     box-sizing: border-box;
     margin: 1rem;
-    width: 250px;
-    height: 250px;
+    flex-basis: 25%;
 }
 
 .investigation,
 .filters {
     display: flex;
 }
+
