@@ -1,36 +1,20 @@
 {
   "notes": [
     {
-      "dateOfInterview": "Now",
-      "timestamp": "Now",
+      "dateOfInterview": "2020-11-05",
+      "timestamp": 1604596990350,
       "author": "Will",
-      "suspect": "Linds",
-      "note": "bad vibe",
+      "criminalId": "16",
+      "noteText": "Ubaldo messed up",
       "id": 1
     },
     {
-      "dateOfInterview": {},
-      "timestamp": 1603398633812,
+      "dateOfInterview": "2020-11-05",
+      "timestamp": 1604598054938,
       "author": "Will",
-      "suspect": "The Grinch",
-      "note": "Stole Christmas",
+      "criminalId": "4",
+      "noteText": "Michel messed up too",
       "id": 2
-    },
-    {
-      "dateOfInterview": "2020-10-22",
-      "timestamp": 1603401230679,
-      "author": "Will",
-      "suspect": "Zak",
-      "note": "Bad bad vibe",
-      "id": 3
-    },
-    {
-      "dateOfInterview": "2020-10-26",
-      "timestamp": 1603724661842,
-      "author": "Billy",
-      "suspect": "Randy",
-      "note": "This still work?",
-      "id": 4
     }
   ]
 }

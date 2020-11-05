@@ -41,7 +41,7 @@ eventHub.addEventListener("change", (changeEvent) => {
                 officerName: changeEvent.target.value
             }
         })
-
+        
         eventHub.dispatchEvent(officerSelectedEvent)
     }
 })
