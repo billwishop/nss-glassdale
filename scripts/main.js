@@ -12,6 +12,9 @@ import { NoteList } from "./notes/NoteList.js"
 import { alibiButtonFunction } from "./criminals/AlibiList.js"
 import { renderWitnessButton } from "./witnesses/WitnessButton.js";
 import { WitnessList } from "./witnesses/WitnessList.js";
+import { getFacilities } from "./facilities/FacilityProvider.js"
+import { getCriminalFacilities } from "./facilities/CriminalFacilityProvider.js"
+
 
 getCriminals()
 useCriminals()
@@ -24,3 +27,6 @@ NoteList()
 alibiButtonFunction()
 renderWitnessButton()
 WitnessList()
+getFacilities()
+getCriminalFacilities()
+
