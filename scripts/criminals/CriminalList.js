@@ -1,9 +1,11 @@
 
 
-import { getCriminals, useCriminals } from "./CriminalProvider.js"
+import { useCriminals } from "./CriminalProvider.js"
 import { criminalCardMaker } from "./Criminal.js"
 import { useConvictions } from "../convictions/ConvictionsProvider.js"
-
+import { getFacilities, useFacilities } from "../facilities/FacilityProvider.js"
+import { useCriminalFacilities } from "../facilities/CriminalFacilityProvider.js"
+import { getCriminalFacilities } from "../facilities/CriminalFacilityProvider.js"
 
 const eventHub = document.querySelector(".container")
 
@@ -30,7 +32,10 @@ eventHub.addEventListener("crimeSelected", (event) => {
         })
         console.log("filteredCriminalsArray", filteredCriminalsArray)
     
-        render(filteredCriminalsArray)
+        const facilities = useFacilities()
+        const crimFac = useCriminalFacilities()
+
+        render(filteredCriminalsArray, facilities, crimFac)
        
     } 
 })
@@ -53,42 +58,62 @@ eventHub.addEventListener("officerSelected", officerSelectedEventObj => {
             }
         }
     )
-    console.log(filteredArrayCriminals)
+    const facilities = useFacilities()
+    const crimFac = useCriminalFacilities()
 
-    render(filteredArrayCriminals)
+    render(filteredArrayCriminals, facilities, crimFac)
 })
 
 
 
-const render = (filteredArray) => {
-    let criminalsHTMLRep = ""
-    for (const criminalObj of filteredArray) {
-        criminalsHTMLRep += criminalCardMaker(criminalObj)
-    }
-    const contentElement = document.querySelector(".criminalsContainer")
+const render = (criminalsToRender, allFacilities, allRelationships) => {
+  
+   const contentElement = document.querySelector(".criminalsContainer")
+    //     Step 1 - Iterate all criminals
+   const matchedFacilities = criminalsToRender.map((criminalObj) => {
+    //    Step 2 - Filter all relationships to get only ones for this criminal
+            const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObj.id)
+            
+    //    Step 3 - Convert the relationships to facilities with map()
+            const facilities = facilityRelationshipsForThisCriminal.map(cf => {
+                const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
+                return matchingFacilityObject
+            })
+            return criminalCardMaker(criminalObj, facilities)
+        }
+    ).join("")
+
     contentElement.innerHTML = `
-        <h2 class="header__criminals">Criminals</h2>
-        <section class="criminalsList">
-            ${criminalsHTMLRep}
-        </section>
+    <h2 class="header__criminals">Criminals</h2>
+         <section class="criminalsList">
+           ${matchedFacilities}
+         </section>
         `
 }
 
+// export const FilteredCriminalList = (filteredArray) => {
+//     getFacilities()
+//         .then(getCriminalFacilities)
+//         .then(() => {
+//             const facilities = useFacilities()
+//             const crimFac = useCriminalFacilities()
+            
+            
+//         render(filteredArray, facilities, crimFac)
+//         }
+//     )
+// }
+
 
 export const CriminalList = () => {
-    getCriminals().then(() => {
-        const criminals = useCriminals() 
-
-        // let criminalHTMLRep = ""
-
-        // for (const criminalObj of criminals) {
-        //     criminalHTMLRep += criminalCardMaker(criminalObj)
-        // }
-        // const contentElement = document.querySelector(".criminalsContainer")
-        // contentElement.innerHTML += criminalHTMLRep
-
-        render(criminals)
-        console.log("criminals array within the criminalList function", criminals)
-     } )
-    
+    getFacilities()
+        .then(getCriminalFacilities)
+        .then(() => {
+            const facilities = useFacilities()
+            const crimFac = useCriminalFacilities()
+            const criminals = useCriminals() 
+            
+        render(criminals, facilities, crimFac)
+        }
+    )
 }

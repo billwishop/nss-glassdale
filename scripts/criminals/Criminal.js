@@ -1,4 +1,4 @@
-export const criminalCardMaker = (criminalObj) => {
+export const criminalCardMaker = (criminalObj, facilities) => {
     return `
      <section class="criminal" id="criminal--${criminalObj.id}">
         <h2 class="criminal__name">${criminalObj.name}</h2>
@@ -6,6 +6,11 @@ export const criminalCardMaker = (criminalObj) => {
         <p class="criminal__crime">Crime: ${criminalObj.conviction}</p>
         <p class="criminal__start">Term start: ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')}</p>
         <p class="criminal__end">Term end: ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}</p>
+
+        <h3>Facilities</h3>
+        <ul>
+            ${facilities.map(f => `<li>${f.facilityName}</li>`).join("")}
+        </ul>
         <button id="associates--${criminalObj.id}">Associate Alibis</button>
     </section>
 `    
