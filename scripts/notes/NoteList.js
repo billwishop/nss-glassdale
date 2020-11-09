@@ -2,8 +2,8 @@
 
 // const notesContainer = document.querySelector(".nameOfContainer")
 
-// import { NoteAsHTML } from "./Note.js"
-import { getNotes, useNotes } from "./NotesDataProvider.js"
+import { NoteAsHTML } from "./Note.js"
+import { deleteNote, getNotes, useNotes } from "./NotesDataProvider.js"
 import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js"
 
 const contentElement = document.querySelector(".notesContainer")
@@ -18,16 +18,9 @@ const render = (noteCollection, criminalCollection) => {
     contentElement.innerHTML = noteCollection.map(note => {
         //use the stored criminalId to find the criminal name
         const relatedCriminal = criminalCollection.find(criminal => criminal.id === parseInt(note.criminalId))
-        
-        return `
-            <section class="note">
-                <h3>Suspect:</h3>
-                <h4>${relatedCriminal.name}</h4>
-                <div>Author: ${note.author}</div>
-                ${note.noteText}
-                ${new Date(note.timestamp).toLocaleDateString('en-US')}
-            </section>
-        `
+    
+      return NoteAsHTML(note, relatedCriminal)
+     
     }).join("")
 }
 
@@ -42,21 +35,15 @@ export const NoteList = () => {
 }
 
 
+// listens for delete button
 
-// const render = (notesArray) => {
-//     let notesHTMLRep = ""
-//     for (const note of notesArray) {
-//         notesHTMLRep += NoteAsHTML(note) 
-//     }
-//     contentElement.innerHTML = `
-//                 ${notesHTMLRep}
-//             `
-// }
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+        const [prefix, id] = clickEvent.target.id.split("--")
 
-// export const NoteList = () => {
-//     getNotes()
-//     .then(() => {
-//         const allNotes = useNotes()
-//         render(allNotes)
-//     })
-// }
+        // delete function imported from NotesDataProvider
+        deleteNote(id)
+    }
+})
+
+
