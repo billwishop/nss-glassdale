@@ -73,7 +73,6 @@ const render = (criminalsToRender, allFacilities, allRelationships) => {
    const matchedFacilities = criminalsToRender.map((criminalObj) => {
     //    Step 2 - Filter all relationships to get only ones for this criminal
             const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObj.id)
-            
     //    Step 3 - Convert the relationships to facilities with map()
             const facilities = facilityRelationshipsForThisCriminal.map(cf => {
                 const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
@@ -117,3 +116,7 @@ export const CriminalList = () => {
         }
     )
 }
+
+
+// hide the criminalcontainer when the facility button is clicked
+

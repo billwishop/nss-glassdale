@@ -56,3 +56,11 @@ export const NoteForm = () => {
         render(criminalArray)
     })
 }
+
+eventHub.addEventListener("hideNoteButtonClicked", () => {
+    contentTarget.style.display = "none";
+})
+
+eventHub.addEventListener("displayNoteButtonClicked", () => {
+    contentTarget.style.display = "";
+})

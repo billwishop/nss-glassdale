@@ -1,3 +1,4 @@
+@import url("facilities.css");
 
 .criminalsList,
 .witness__list {
@@ -8,7 +9,8 @@
 }
 
 .criminal,
-.witness {
+.witness,
+.note {
     border: 1px dotted black;
     padding: .5rem;
     box-sizing: border-box;
@@ -16,17 +18,25 @@
     flex-basis: 25%;
 }
 
+.criminal {
+    background-color: lightblue;
+}
+
+.witness {
+    background-color: lightcoral;
+}
+.note {
+    background-color: lightgrey;
+}
+
 .investigation,
-.filters {
+.filters,
+.buttons {
     display: flex;
 }
 
-.filter {
+.filter,
+.button {
     padding: .25em;
 }
 
-/* .header__criminals {
-    align-content: flex-end;
-    margin: 1rem;
-    padding: .5rem;
-} */
