@@ -1,5 +1,4 @@
-console.log("Main module")
-
+console.log("you rock :)")
 
 import { getCriminals, useCriminals } from "./criminals/CriminalProvider.js"
 import { CriminalList } from "./criminals/CriminalList.js"
@@ -14,7 +13,9 @@ import { renderWitnessButton } from "./witnesses/WitnessButton.js";
 import { WitnessList } from "./witnesses/WitnessList.js";
 import { getFacilities } from "./facilities/FacilityProvider.js"
 import { getCriminalFacilities } from "./facilities/CriminalFacilityProvider.js"
-
+import { renderFacilityButton } from "./facilities/FacilitiesButton.js"
+import "./facilities/FacilityList.js"
+import { renderHideNoteFormButton } from "./notes/NoteFormButton.js"
 
 getCriminals()
 useCriminals()
@@ -29,4 +30,5 @@ renderWitnessButton()
 WitnessList()
 getFacilities()
 getCriminalFacilities()
-
+renderFacilityButton()
+renderHideNoteFormButton()

@@ -11,17 +11,23 @@
 
     <main class="container">
         <header>
+            <div class="buttons">
+                <div class="button filter filters__incarceration"></div>
+                <div class="button witness__button"></div>
+                <div class="button facility__button"></div>
+                <div class="button note__button"></div>
+                <div class="button noteList__button"></div>
+            </div>
             <div class="filters">
                 <div class="filter filters__crime"></div>
-                <div class="filter filters__incarceration"></div>
                 <div class="filter filters__officer"></div>
-                <div class="filter witness__button"></div>
             </div>
         </header>
         <article class="noteFormContainer"></article>
         <section class="investigation">
             <div>
-                <article class="criminalsContainer"></article>
+                <article id="criminal__container" class="criminalsContainer"></article>
+                <article class="facilityContainer"></article>
             </div>
             <div>
                 <h2>Notes</h2>

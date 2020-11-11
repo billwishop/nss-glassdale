@@ -1,0 +1,15 @@
+.facilitiesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
+}
+
+.facility {
+    border: 1px dotted black;
+    padding: .5rem;
+    box-sizing: border-box;
+    margin: 1rem;
+    flex-basis: 25%;
+    background-color: lightgreen;
+}
