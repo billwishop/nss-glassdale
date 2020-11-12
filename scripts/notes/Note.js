@@ -6,9 +6,9 @@ export const NoteAsHTML = (note, criminal) => {
         <section class="note">
         <h3>Suspect:</h3>
         <h4>${criminal.name}</h4>
-        <div>Author: ${note.author}</div>
-        ${note.noteText}
-        ${new Date(note.timestamp).toLocaleDateString('en-US')}
+        <p>${note.noteText}</p>
+        <p>${new Date(note.timestamp).toLocaleDateString('en-US')}</p>
+        <p>Author: ${note.author}</p>
         <button id="deleteNote--${note.id}">Delete</button>
         </section>
         `

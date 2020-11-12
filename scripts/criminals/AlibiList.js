@@ -30,11 +30,11 @@ export const alibiButtonFunction = () => {
 
 
 const render = (criminalObj) => {
-    const alibiTarget = document.querySelector(`#criminal--${criminalObj.id}`)
+    const alibiTarget = document.querySelector(`#alibi--${criminalObj.id}`)
 
     let person = 1
 
-    alibiTarget.innerHTML += `
+    alibiTarget.innerHTML = `
     <div class="alibi__list">
         ${criminalObj.known_associates.map(alibiObj => {
             return `

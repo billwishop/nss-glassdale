@@ -28,7 +28,7 @@ export const NoteList = () => {
     getNotes()
         .then(getCriminals)
         .then(() => {
-            const notes = useNotes()
+            const notes = useNotes().reverse()
             const criminals = useCriminals()
             render(notes, criminals)
         })

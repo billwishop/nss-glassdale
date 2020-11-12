@@ -12,6 +12,7 @@ export const criminalCardMaker = (criminalObj, facilities) => {
             ${facilities.map(f => `<li>${f.facilityName}</li>`).join("")}
         </ul>
         <button id="associates--${criminalObj.id}">Associate Alibis</button>
+        <div id="alibi--${criminalObj.id}"></div>
     </section>
 `    
 }

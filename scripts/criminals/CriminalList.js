@@ -10,36 +10,28 @@ import { getCriminalFacilities } from "../facilities/CriminalFacilityProvider.js
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("crimeSelected", (event) => {
-    
 
     if(event.detail.crimeThatWasChosen !== 0) {
 
-        console.log("Crime has been selected.", event.detail.crimeThatWasChosen)
-
         const criminalsArray = useCriminals()
-        console.log("array of criminals", criminalsArray)
-
         const convictionsArray = useConvictions()
-        console.log("array of convictions", convictionsArray)
 
         const convictionThatWasChosen = convictionsArray.find(convictionObj => {
             return convictionObj.id === event.detail.crimeThatWasChosen
         })
-        console.log("convictionThatWasChosen", convictionThatWasChosen)
 
         const filteredCriminalsArray = criminalsArray.filter(criminalObj => {
             return criminalObj.conviction === convictionThatWasChosen.name
         })
-        console.log("filteredCriminalsArray", filteredCriminalsArray)
     
         const facilities = useFacilities()
         const crimFac = useCriminalFacilities()
 
         render(filteredCriminalsArray, facilities, crimFac)
-       
     } 
 })
 
+eventHub.addEventListener("criminalButtonClicked", () => CriminalList())
 
 eventHub.addEventListener("officerSelected", officerSelectedEventObj => {
     console.log("CriminalList: officerSelected custom event has been heard on the event hub")
@@ -84,24 +76,12 @@ const render = (criminalsToRender, allFacilities, allRelationships) => {
 
     contentElement.innerHTML = `
     <h2 class="header__criminals">Criminals</h2>
-         <section class="criminalsList">
-           ${matchedFacilities}
-         </section>
-        `
+        <section class="criminalsList">
+        ${matchedFacilities}
+        </section>
+    `
 }
 
-// export const FilteredCriminalList = (filteredArray) => {
-//     getFacilities()
-//         .then(getCriminalFacilities)
-//         .then(() => {
-//             const facilities = useFacilities()
-//             const crimFac = useCriminalFacilities()
-            
-            
-//         render(filteredArray, facilities, crimFac)
-//         }
-//     )
-// }
 
 
 export const CriminalList = () => {
@@ -118,5 +98,4 @@ export const CriminalList = () => {
 }
 
 
-// hide the criminalcontainer when the facility button is clicked
 
