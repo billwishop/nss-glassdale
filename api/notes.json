@@ -15,6 +15,22 @@
       "criminalId": "27",
       "noteText": "Messed up too",
       "id": 2
+    },
+    {
+      "dateOfInterview": "2020-11-12",
+      "timestamp": 1605193476292,
+      "author": "William",
+      "criminalId": "10",
+      "noteText": "Messed up big time",
+      "id": 3
+    },
+    {
+      "dateOfInterview": "2020-11-12",
+      "timestamp": 1605193572795,
+      "author": "Cop",
+      "criminalId": "15",
+      "noteText": "Really messed up",
+      "id": 4
     }
   ]
 }

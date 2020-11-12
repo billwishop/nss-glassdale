@@ -16,6 +16,7 @@ import { getCriminalFacilities } from "./facilities/CriminalFacilityProvider.js"
 import { renderFacilityButton } from "./facilities/FacilitiesButton.js"
 import "./facilities/FacilityList.js"
 import { renderHideNoteFormButton } from "./notes/NoteFormButton.js"
+import { renderCriminalButton } from "./criminals/CriminalListButton.js"
 
 getCriminals()
 useCriminals()
@@ -32,3 +33,4 @@ getFacilities()
 getCriminalFacilities()
 renderFacilityButton()
 renderHideNoteFormButton()
+renderCriminalButton()
