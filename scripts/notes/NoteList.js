@@ -15,13 +15,19 @@ eventHub.addEventListener("noteStateChanged", () => NoteList())
 // 1. Variable representing useNotes() 
 // 2. Variable representing useCriminals()
 const render = (noteCollection, criminalCollection) => {
-    contentElement.innerHTML = noteCollection.map(note => {
+     const noteListHTML = noteCollection.map(note => {
         //use the stored criminalId to find the criminal name
         const relatedCriminal = criminalCollection.find(criminal => criminal.id === parseInt(note.criminalId))
     
       return NoteAsHTML(note, relatedCriminal)
      
     }).join("")
+    contentElement.innerHTML = `
+    <h2>Notes</h2>
+        <section class="notesList">
+            ${noteListHTML}
+        </section>
+    `
 }
 
 export const NoteList = () => {
@@ -47,3 +53,10 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 
+eventHub.addEventListener("hideNoteList", () => {
+    contentElement.style.display = "none";
+})
+
+eventHub.addEventListener("displayNoteList", () => {
+    contentElement.style.display = "";
+})
